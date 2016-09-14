@@ -1,0 +1,58 @@
+<div class="jumbotron">
+	<h1>The Shooting Range</h1>
+
+	<div *ngIf="screenState === 'chooseRange'">
+		<div class="row">
+			<div class="col-sm-12">
+				<h2>Choose your Range:</h2>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-4">
+				<a class="btn btn-block btn-lg" (click)="chooseRangeLevel('beginner')">Beginner</a>
+			</div>
+
+			<div class="col-sm-4">
+				<a class="btn btn-block btn-lg" (click)="chooseRangeLevel('intermediate')">Intermediate</a>
+			</div>
+
+			<div class="col-sm-4">
+				<a class="btn btn-block btn-lg" (click)="chooseRangeLevel('expert')">Robin Hood</a>
+			</div>
+		</div>
+	</div>
+	<div *ngIf="screenState === 'rangeLoading'">
+		<div class="row">
+			<div class="col-sm-12">
+				<h2>The Shoot Begins!</h2>
+				<p>The crowd hushes as you begin your way to the line for your shoot. Expecting to see a spectacle, they anticipate an exciting day...</p>
+			</div>
+			<div class="col-sm-4 col-sm-offset-4">
+				<a class="btn btn-lg btn-block" (click)="shootTargets()">Continue</a>
+			</div>
+		</div>
+	</div>
+	<div *ngIf="screenState === 'rangeResults'">
+		<div class="row">
+			<div class="col-sm-12">
+				<h2>Your Results</h2>
+				<p>After a long day of shooting highs and lows, it's your turn to come up and take your turn. You notch your first arrow and draw back...</p>
+				<div *ngFor="let score of totalScore.rangeResults; let i = index">
+					<p class="shoot-results">
+						Arrow {{i+1}} ({{score.score}}): 
+							<span *ngIf="score.placement === 1">Fantastic! Bulls-Eye!</span> 
+							<span *ngIf="score.placement === 2">Not too bad, you hit the middle ring.</span>
+							<span *ngIf="score.placement === 3">Well, at least you hit the outside ring...</span>
+							<span *ngIf="score.placement === 4">Woosh!  You completely missed...</span>
+					</p>
+				</div>
+				<h3 class="shoot-results">
+					<strong>Your Score:</strong> {{totalScore.total}}
+				</h3>
+			</div>
+			<div class="col-sm-6 col-sm-offset-3">
+				<a class="btn btn-lg btn-block" [routerLink]="['/dash']">Continue</a>
+			</div>
+		</div>
+	</div>
+</div>

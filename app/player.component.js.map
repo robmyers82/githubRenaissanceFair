@@ -1,0 +1,1 @@
+{"version":3,"file":"player.component.js","sourceRoot":"","sources":["player.component.ts"],"names":[],"mappings":";;;;;;;;;;AAAA,qBAAiC,eAAe,CAAC,CAAA;AAQjD;IAAA;IAEA,CAAC;IADA;QAAC,YAAK,EAAE;;mDAAA;IAPT;QAAC,gBAAS,CAAC;YACV,QAAQ,EAAE,aAAa;YACrB,WAAW,EAAE,2BAA2B;YACxC,SAAS,EAAE,CAAC,0BAA0B,CAAC;SACzC,CAAC;;uBAAA;IAIF,sBAAC;AAAD,CAAC,AAFD,IAEC;AAFY,uBAAe,kBAE3B,CAAA"}

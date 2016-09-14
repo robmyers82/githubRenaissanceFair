@@ -1,0 +1,88 @@
+<div class="jumbotron">
+	<h1>Ye Olde Leaderboarde</h1>
+
+	<div class="row">
+		<div class="col-sm-12">
+			<a class="btn btn-lg btn-block" [routerLink]="['/']">Return to Main</a>
+		</div>
+		<div class="col-sm-6">
+			<a class="btn btn-lg btn-block" (click)="viewLeaderboard('duel')">Duel</a>
+		</div>
+		<div class="col-sm-6">
+			<a class="btn btn-lg btn-block" (click)="viewLeaderboard('archeryBeg')">Archery (Beginner)</a>
+		</div>
+		<div class="col-sm-6">
+			<a class="btn btn-lg btn-block" (click)="viewLeaderboard('archeryInt')">Archery (Intermediate)</a>
+		</div>
+		<div class="col-sm-6">
+			<a class="btn btn-lg btn-block" (click)="viewLeaderboard('archeryExp')">Archery (Robin Hood)</a>
+		</div>
+	</div>
+
+	<div class="row">
+		<div *ngIf="leaderboardView === 'duel'" class="col-sm-12">
+			<h2>Duelling Leaderboard</h2>
+			<div class="leaderboard-window list-group">
+				<div *ngIf="!duellingList.length">
+					<p>No duels yet!</p>
+				</div>
+				<div *ngFor="let player of duellingList">
+					<div class="list-group-item" *ngIf="player.wins > 0 || player.losses > 0">
+						<div class="pull-right">
+							<p><strong>Wins:</strong> {{player.wins}} <strong>Losses:</strong> {{player.losses}}</p>
+						</div>
+						<p>{{player.title}} {{player.name}} the {{player.descriptor}}</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div *ngIf="leaderboardView === 'rangebeg'" class="col-sm-12">
+			<h2>Archery Leaderboard (Beginner)</h2>
+			<div class="leaderboard-window list-group">
+				<div *ngIf="!archeryBegList.length">
+					<p>No shoots yet!</p>
+				</div>
+				<div *ngFor="let player of archeryBegList">
+					<div class="list-group-item" *ngIf="player.beginnerbest > 0">
+						<div class="pull-right">
+							<p><strong>Best Score:</strong> {{player.beginnerbest}}</p>
+						</div>
+						<p>{{player.title}} {{player.name}} the {{player.descriptor}}</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div *ngIf="leaderboardView === 'rangeint'" class="col-sm-12">
+			<h2>Archery Leaderboard (Intermediate)</h2>
+			<div class="leaderboard-window list-group">
+				<div *ngIf="!archeryIntList.length">
+					<p>No shoots yet!</p>
+				</div>
+				<div *ngFor="let player of archeryIntList">
+					<div class="list-group-item" *ngIf="player.intermediatebest > 0">
+						<div class="pull-right">
+							<p><strong>Best Score:</strong> {{player.intermediatebest}}</p>
+						</div>
+						<p>{{player.title}} {{player.name}} the {{player.descriptor}}</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div *ngIf="leaderboardView === 'rangeexp'" class="col-sm-12">
+			<h2>Archery Leaderboard (Robin Hood)</h2>
+			<div class="leaderboard-window list-group">
+				<div *ngIf="!archeryExpList.length">
+					<p>No shoots yet!</p>
+				</div>
+				<div *ngFor="let player of archeryExpList">
+					<div class="list-group-item" *ngIf="player.expertbest > 0">
+						<div class="pull-right">
+							<p><strong>Best Score:</strong> {{player.expertbest}}</p>
+						</div>
+						<p>{{player.title}} {{player.name}} the {{player.descriptor}}</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

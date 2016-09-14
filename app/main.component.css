@@ -1,0 +1,18 @@
+.jumbotron {
+	margin-top: 40px;
+	background: #4a5022;
+}
+
+h1 {
+	font-family: 'Almendra SC', serif;
+	color: #FFF;
+	text-align: center;
+	margin-bottom: 40px;
+}
+
+a {
+	font-family: 'Almendra', serif;
+	background: #d97f27;
+	color: #FFF;
+	font-size: 24px;
+}

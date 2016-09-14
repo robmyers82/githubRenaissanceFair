@@ -1,0 +1,76 @@
+<div class="jumbotron">
+	<h1>The Dueling Arena</h1>
+
+	<div *ngIf="screenState === 'chooseOpponent'">
+		<div class="row">
+			<div class="col-sm-12">
+				<h2>Choose your Opponent:</h2>
+			</div>
+		</div>
+		<div class="row">
+			<div class="list-group">
+				<div *ngFor="let opponent of opponentsList | async">
+					<div class="list-group-item" *ngIf="opponent.type === 'knight' && opponent.$key !== loggedUser.id">
+						<div class="pull-right">
+							<button class="btn btn-lg" (click)="chooseOpponent(opponent)">Choose</button>
+						</div>
+						<p>{{opponent.title}} {{opponent.name}} the {{opponent.descriptor}} (Power: {{opponent.power}}, Accuracy: {{opponent.accuracy}})</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div *ngIf="screenState === 'yourOpponent'">
+		<div class="row">
+			<div class="col-sm-12">
+				<h2>Your Opponent</h2>
+			</div>
+			<div class="col-sm-4 col-sm-offset-2">
+				<player-card [player]='opponent'></player-card>
+			</div>
+
+			<div class="col-sm-4">
+				<a class="btn btn-lg btn-block" (click)="runAway()">Run Away!</a>
+
+				<a class="btn btn-lg btn-block" (click)="loadDuel()">Duel!</a>
+			</div>
+		</div>
+	</div>
+	<div *ngIf="screenState === 'duelLoading'">
+		<div class="row">
+			<div class="col-sm-12">
+				<h2>The Battle Begins!</h2>
+				<p>The arena has already seen a lot of action today, and it shows. After arming yourself and mustering up all of your courage, you walk under the arches and into the arena and the roar of the crowd. Across the battle-worn arena is your opponent, equally armed and ready for battle...</p>
+			</div>
+			<div class="col-sm-4 col-sm-offset-4">
+				<a class="btn btn-lg btn-block" (click)="performDuel()">Continue</a>
+			</div>
+		</div>
+	</div>
+	<div *ngIf="screenState === 'duelResults'">
+		<div *ngIf="duelResult === 'won'" class="row">
+			<div class="col-sm-12">
+				<h2>Victory!</h2>
+				<p>You were tested to the limit, but you came out victorious. The wine and mead will be plentiful tonight!</p>
+				<div class="col-sm-6 col-sm-offset-3">
+					<img src="/images/duel-victory.jpg" class="img-responsive">
+				</div>
+			</div>
+			<div class="col-sm-4 col-sm-offset-4">
+				<a class="btn btn-lg btn-block" [routerLink]="['/dash']">Continue</a>
+			</div>
+		</div>
+		<div *ngIf="duelResult === 'lost'" class="row">
+			<div class="col-sm-12">
+				<h2>You Lost...</h2>
+				<p>The battle had it's ups and downs, but at the end of the day you had to relent and live to fight another day. Licking your wounds, the crowd knows you'll be back!</p>
+				<div class="col-sm-6 col-sm-offset-3">
+					<img src="/images/duel-defeat.jpg" class="img-responsive">
+				</div>
+			</div>
+			<div class="col-sm-4 col-sm-offset-4">
+				<a class="btn btn-lg btn-block" [routerLink]="['/dash']">Continue</a>
+			</div>
+		</div>
+	</div>
+</div>

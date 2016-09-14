@@ -1,0 +1,30 @@
+.player-window {
+	background: #841617;
+	border-radius: 5px;
+}
+
+h2 {
+	padding-top: 20px;
+	font-family: 'Almendra SC', serif;
+	color: #FFF;
+	text-align: center;
+	margin-bottom: 20px;
+	margin-top: 0px;
+}
+
+p {
+	padding-top: 10px;
+	font-family: 'Almendra', serif;
+	text-align: center;
+	color: #FFF;
+	padding-bottom: 20px;
+}
+
+a {
+	background: #d97f27;
+	color: #FFF;
+}
+
+img {
+	width: 100%;
+}

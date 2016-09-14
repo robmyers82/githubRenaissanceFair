@@ -1,0 +1,43 @@
+.jumbotron {
+	margin-top: 40px;
+	background: #b9905c;
+}
+
+h1 {
+	font-family: 'Almendra SC', serif;
+	color: #000;
+	text-align: center;
+	margin-bottom: 0px;
+	margin-top: 0px;
+}
+
+h2 {
+	font-family: 'Almendra SC', serif;
+	color: #000;
+	text-align: center;
+	margin-bottom: 20px;
+}
+
+h3 {
+	font-family: 'Almendra SC', serif;
+	color: #000;
+	text-align: center;
+	margin-bottom: 20px;
+	font-size: 50px;
+}
+
+p {
+	font-family: 'Almendra', serif;
+	color: #000;
+}
+
+.shoot-results {
+	text-align: center;
+}
+
+a {
+	font-family: 'Almendra SC', serif;
+	background: #841617;
+	color: #FFF;
+	font-size: 24px;
+}

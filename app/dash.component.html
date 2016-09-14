@@ -1,0 +1,47 @@
+<div class="jumbotron">
+	<h1>Welcome to the Games!</h1>
+
+	<div class="row">
+		<div class="col-sm-4">
+			<player-card [player]='player'></player-card>
+		</div>
+		<div class="col-sm-8">
+			<div *ngIf="player.type === 'knight'">
+				<div class="row">
+					<div class="col-sm-6">
+						<h2>Total Duels</h2>
+						<p>{{player.totalduels}}</p>
+					</div>
+					<div class="col-sm-6">
+						<h2>Duel Record</h2>
+						<p>{{player.wins}} - {{player.losses}}</p>
+					</div>
+				</div>
+			</div>
+			<div *ngIf="player.type === 'archer' && player.totalshoots > 0">
+				<div class="row">
+					<div class="col-sm-6">
+						<h2>Total Shoots</h2>
+						<p>{{player.totalshoots}}</p>
+					</div>
+					<div class="col-sm-6">
+						<h2>Best Shoot</h2>
+						<p>{{player.bestscore}} - {{player.bestlevel}}</p>
+					</div>
+				</div>
+			</div>
+			<a class="btn btn-lg btn-block" *ngIf="player.type === 'archer'" [routerLink]="['/shoot']">
+				Shooting Range
+			</a>
+			<a class="btn btn-lg btn-block" *ngIf="player.type === 'knight'" [routerLink]="['/duel']">
+				Duel
+			</a>
+			<a class="btn btn-lg btn-block" [routerLink]="['/leaderboard']">
+				View Leaderboard
+			</a>
+			<a class="btn btn-lg btn-block" (click)="logout()">
+				Logout
+			</a>
+		</div>
+	</div>
+</div>
